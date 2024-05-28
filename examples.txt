@@ -1,0 +1,72 @@
+// Ejemplos para ejecutar mientras se explica
+// Creación de objeto literal
+const persona = {
+    nombre: 'Juan',
+    edad: 30,
+    ciudad: 'Madrid'
+};
+
+console.log(persona);
+
+// Creación de objeto con Object.create
+const prototipoPersona = {
+    saludar() {
+        console.log(`Hola, me llamo ${this.nombre}`);
+    }
+};
+
+const persona2 = Object.create(prototipoPersona);
+persona2.nombre = 'Ana';
+persona2.edad = 25;
+persona2.ciudad = 'Barcelona';
+
+console.log(persona2);
+persona2.saludar();
+
+const coche = {
+    marca: 'Toyota',
+    modelo: 'Corolla',
+    año: 2020
+};
+
+// Dot notation
+console.log(coche.marca); // Acceso con dot notation
+console.log(coche.modelo);
+
+// Bracket notation
+console.log(coche['marca']); // Acceso con bracket notation
+console.log(coche['modelo']);
+
+//Destructuring
+const usuario = {
+    nombre: 'Carlos',
+    edad: 28,
+    pais: 'Chile'
+};
+
+const { nombre, edad, pais } = usuario; // Destructuring
+console.log(nombre);
+console.log(edad);
+console.log(pais);
+
+// Prototype
+// Definición de un constructor
+function Animal(nombre, sonido) {
+    this.nombre = nombre;
+    this.sonido = sonido;
+}
+
+// Añadiendo un método al prototipo
+Animal.prototype.hacerSonido = function() {
+    console.log(`${this.nombre} hace ${this.sonido}`);
+};
+
+const perro = new Animal('Perro', 'guau');
+const gato = new Animal('Gato', 'miau');
+
+console.log(perro);
+console.log(gato);
+
+perro.hacerSonido();
+gato.hacerSonido();
+
